@@ -1,0 +1,197 @@
+body{
+    font-family: Arial, sans-serif;
+    background-image: url('../imgs/papeldeparede001.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.9);
+    z-index: 1;
+}
+
+.logo-pag{
+    padding: 20px 0;
+}
+
+.logo-pag img{
+    width: 80px;
+}
+
+.card{
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    width: 400px;
+    text-align: center;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.card:hover{
+    transform: translateY(-7px);
+}
+
+.card-imagem img{
+    width: 100%;
+    height: auto;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h2{
+    margin: 0;
+    width: auto;
+    height: 40px;
+    font-size: 25px;
+}
+
+.card-info p{
+    column-rule-color: #1f2937;
+    margin: 5px 0 15px;
+    font-size: 16px;
+}
+
+.social-links a{
+    color: #2e4974;
+    margin: 0 10px;
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover{
+    color: #2a34e4;
+    transition: color 1s;
+}
+
+.dwn-curriculo{
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+}
+
+.dwn-curriculo .btn-contato {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    height: auto;
+    width: 260px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border: auto;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.7s, transform 0.2s;
+}
+
+.dwn-curriculo .btn-contato:hover {
+    background-color: #383838;
+}
+
+button{
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 15px;
+    border: none;
+    height: 40px;
+    width: 300px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.7s;
+}
+
+button:hover{
+    background-color: #383838;
+}
+
+.contato-info{
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 15px;
+    transition: opacity 0.7s ease, max-height 0.7s ease, margin-top 0.7s ease;
+}
+
+.contato-info.ativo{
+   opacity: 1;
+   max-height: 100px;
+}
+
+/* =================================================================== */
+/* REGRAS PARA RESPONSIVIDADE                      */
+/* =================================================================== */
+/* As regras abaixo serão aplicadas apenas em telas com largura máxima 
+   de 480px, o que inclui a grande maioria dos celulares na vertical. */
+
+@media (max-width: 480px) {
+
+    /*
+     * Comentário: Ajustando o cartão principal.
+     * Motivo: A largura fixa de 400px é maior que a tela de muitos celulares.
+     * Solução: Trocamos a largura fixa por uma porcentagem (90%) para que 
+     * o cartão se ajuste à tela e sempre mantenha uma pequena margem nas laterais.
+    */
+    .card {
+        width: 50%;
+    }
+
+    /*
+     * Comentário: Ajustando o título "h2".
+     * Motivo: A altura fixa de 40px poderia cortar o texto se ele precisasse 
+     * de duas linhas em uma tela menor. O tamanho da fonte também podia
+     * parecer muito grande no novo layout.
+     * Solução: Removemos a altura fixa e diminuímos um pouco a fonte.
+    */
+    .card-info h2 {
+        font-size: 22px;
+        height: auto;
+    }
+
+    /*
+     * Comentário: Ajustando o parágrafo de descrição.
+     * Motivo: Melhorar a legibilidade em telas pequenas.
+     * Solução: Aumentamos levemente a fonte para facilitar a leitura.
+    */
+    .card-info p {
+        font-size: 15px;
+    }
+
+    /*
+     * Comentário: Ajustando os botões.
+     * Motivo: Os botões também tinham larguras fixas que poderiam parecer
+     * desproporcionais no cartão menor.
+     * Solução: Definimos a largura deles para 90% do espaço disponível
+     * dentro do cartão, mantendo o layout consistente e fluido.
+    */
+    button,
+    .dwn-curriculo .btn-contato {
+        width: 90%;
+    }
+}
